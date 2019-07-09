@@ -47,20 +47,19 @@ body {
   //@include baseline(7rem,9rem,15rem);
   font-size: calc(3em + 2vw);
   line-height: 9 / 7 * 1em;
-  margin-bottom: -20vh;
   
-  font-family: charter;
+  font-family: charter, serif;
   color: var(--foreground);
-  font-weight: 200;
   margin-top: 38vh;
   transform: translate(0,-50%);
 }
+
 .normal-text {
   font-size: calc((3em + 2vw) * .7);
   line-height: 9 / 6 * 1em;
   margin-bottom: -20vh;
   
-  font-family: charter;
+  font-family: charter, serif;
   color: var(--foreground);
   font-weight: 200;
   margin-top: 38vh;
@@ -120,7 +119,7 @@ nav ul {
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
-    font-family: charter;
+    font-family: charter, serif;
     font-size: calc(2.5em + 1.9vw);
   }
 }
@@ -200,9 +199,12 @@ nav ul {
     li:nth-of-type(1n) {
       display: block;
       margin-left: map-get($sm-grid, gutter);
-      @include baseline(3rem,5rem,5rem);
+      @include baseline(4.5rem,10rem,5rem);
       a {
         color: var(--background);
+      }
+      &.current a {
+        color: var(--highlight);
       }
     }
    
