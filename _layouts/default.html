@@ -5,6 +5,7 @@
   <style>
     :root {
       --foreground: {{page.foreground}};
+      --background: {{page.background}};
     }
     body { 
       background: {{page.background}};
@@ -13,14 +14,16 @@
 </head>
 <body>
 
-<div class="grid">
-  <div class="col-3">
+<div class="grid grid-sm">
+  <div class="col-3 col-sm-10">
     <a href="/">
     {% include logo.html %}
     </a>
   </div>
-  <nav class="col-9">
-    <ul>
+  <nav class="col-9 col-sm-2">
+    <a href="#menu"><div id="menu-button">&#9776;</div></a>
+    <ul id="menu">
+      <a href="#"><div id="menu-close">&times;</div></a>
       <li><a href="">who we are</a></li>
       <li><a href="">what we do</a></li>
       <li><a href="">how we work</a></li>

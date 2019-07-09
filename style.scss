@@ -10,7 +10,15 @@ $grid: (
   namespace: ""
 );
 
+$sm-grid: (
+  columns: 12,
+  gutter: 1.5rem,
+  container: 92vw,
+  namespace: "-sm"
+);
+
 @include gen-grid($grid);
+
 
 @font-face {
   font-family: charter;
@@ -26,6 +34,7 @@ body {
   color: #636363;
   margin: 0;
   font-family: sans-serif;
+  overflow-x: hidden;
 
 }
 
@@ -124,3 +133,78 @@ nav ul {
   opacity: 0;
   pointer-events: none;
 }
+
+#menu-close ,
+#menu-button {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+
+  @include gen-grid($sm-grid);
+
+
+  .grid-sm {
+    overflow-x: hidden;
+  }
+
+  #LOGO {
+    margin-top: 4rem;
+    width:170px;
+  }
+
+  #menu {
+    position: fixed;
+    right:0;
+    top: 0;
+    height: 100vh;
+    width: 35rem;
+    margin: 0;
+    padding-left: (100vw - map-get($sm-grid,container)) / 2;
+    padding-top: 12rem;
+    background: var(--foreground);
+    text-align: left;
+    transform: translate(100%, 0);
+    transition: transform .6s ease;
+    
+    li:nth-of-type(1n) {
+      display: block;
+      margin-left: map-get($sm-grid, gutter);
+      @include baseline(3rem,5rem,5rem);
+      a {
+        color: var(--background);
+      }
+    }
+   
+    &:target {
+      transform: translate(0, 0);
+    }
+  }
+  a {
+    text-decoration: none;
+  }
+
+  #menu-close ,
+  #menu-button {
+    @include baseline(7rem,9rem,8rem);
+    display: block;
+    font-family: sans-serif;
+  }
+
+  #menu-button {
+    color: var(--foreground);
+  }
+
+  #menu-close {
+    color: var(--background);
+    position: absolute;
+    right: (100vw - map-get($sm-grid,container)) / 2;
+    top: 1rem;
+    margin-right: map-get($sm-grid, gutter);
+  }
+
+  nav {
+    text-align: right;
+  }
+}
+
