@@ -37,6 +37,7 @@ body {
 .splash-text {
   @include baseline(7rem,9rem,15rem);
   font-family: charter;
+  color: var(--foreground)
 }
 
 nav ul {
