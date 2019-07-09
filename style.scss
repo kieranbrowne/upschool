@@ -1,0 +1,62 @@
+---
+---
+
+@import "solar";
+
+$grid: (
+  columns: 12,
+  gutter: 2.5rem,
+  container: 92vw,
+  namespace: ""
+);
+
+@include gen-grid($grid);
+
+@font-face {
+  font-family: charter;
+  src: url(Charter.ttf);
+}
+
+:root {
+  font-size: 6px;
+}
+
+body {
+  background: #FFF8E8;
+  color: #636363;
+  margin: 0;
+  font-family: sans-serif;
+
+}
+
+#LOGO {
+  margin-top: 4rem;
+  width:col-width($grid,3);
+}
+
+.splash-text {
+  @include baseline(7rem,9rem,15rem);
+  font-family: charter;
+}
+
+nav ul {
+  list-style: none;
+  text-align: right;
+
+  li {
+    vertical-align: top;
+    display: inline-block;
+    @include baseline(3rem,5rem,5rem);
+    margin-left: 10rem;
+
+  }
+  li:nth-of-type(3) {
+    @include baseline(3rem,5rem,7rem);
+  }
+  li:nth-of-type(2) {
+    @include baseline(3rem,5rem,9rem);
+  }
+  li:nth-of-type(1) {
+    @include baseline(3rem,5rem,11rem);
+  }
+}

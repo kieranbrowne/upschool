@@ -1,0 +1,99 @@
+$default-grid-def : (
+  columns: 12,
+  gutter: 1rem,
+  container: 100vw,
+  namespace: ""
+);
+
+@function col-width($grid-def, $n-cols:1,$extra-gutters: 0) {
+  @return calc((#{map-get($grid-def,container)} - #{map-get($grid-def,gutter)*13})/#{map-get($grid-def,columns)} 
+      * #{$n-cols} + (#{map-get($grid-def,gutter)} * #{$n-cols + (-1 + $extra-gutters)}));
+} 
+
+@mixin baseline(
+$font-size: 14px,
+$baseline: 20px,
+$first-baseline: $baseline,
+$after: 0,
+$ratio: 1.4 // cap height : descender
+) {
+
+  $shift: (($ratio / 8) * $font-size);
+  $shift: $shift + (($baseline - $font-size) / 2);
+
+  box-sizing: content-box;
+
+  font-size: $font-size;
+  line-height: $baseline;
+  margin-top: ($first-baseline - $baseline + $shift);
+  $aftern: ($after - $shift);
+  @if $aftern < 0 {
+    margin-bottom: $aftern;
+    padding-bottom: 0;
+  } @else {
+    padding-bottom: $aftern;
+    margin-bottom: 0;
+  }
+}
+
+@mixin gen-grid($grid-def) {
+
+  .grid#{map-get($grid-def,namespace)} {
+
+    max-width: map-get($grid-def, container);
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+    font-size: 0;
+    margin: 0 auto;
+
+    &:after {
+      clear: both;
+      display:  block;
+      content: ' ';
+      height: 0;
+      visibility: hidden;
+    }
+
+    %gut-right {
+      margin-right: map-get($grid-def,gutter);
+    }
+
+    @for $i from 0 through map-get($grid-def,columns) {
+      @include gen-col($grid-def,$i);
+      @include gen-push($grid-def,$i);
+    }
+
+  }
+}
+
+@mixin gen-col($grid-def,$num:1) {
+  .col#{map-get($grid-def,namespace)}-#{$num} {
+    max-width: col-width($grid-def,$num);
+    width: col-width(map-merge($grid-def,(container:100%)),$num);
+    margin-left: map-get($grid-def,gutter);
+    font-size: 1rem;
+
+    // extra
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+
+    // off option
+    @if $num == 0 {
+      display: none;
+    }
+  }
+}
+
+@mixin gen-push($grid-def,$num:1) {
+  [class*="col-"].col#{map-get($grid-def,namespace)}-push-#{$num} {
+    margin-left: col-width($grid-def,$num,2);
+    //width: col-width(map-merge($grid-def,(container:100%)),$num);
+
+    @media screen and (max-width: #{map-get($grid-def,container)}) {
+      margin-left: col-width(map-merge($grid-def,(container:100%)),$num,2);
+    }
+  }
+}
