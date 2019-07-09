@@ -15,15 +15,23 @@
 </div>
 <nav class="col-8">
 <ul>
-<li>who we are</li>
-<li>what we do</li>
-<li>how we work</li>
-<li>engage</li>
+<li><a href="">who we are</a></li>
+<li><a href="">what we do</a></li>
+<li><a href="">how we work</a></li>
+<li><a href="">engage</a></li>
 </ul>
 </nav>
 </div>
 
 {{content}}
+
+{% if page.loadscreen %}
+<div id="loadscreen" class="fade-out">
+<div class="centerscreen fade-in">
+<span>This is education </span><span class="rise">elevated.</span>
+</div>
+</div>
+{% endif %}
 
 </body>
 </html>

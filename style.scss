@@ -60,3 +60,59 @@ nav ul {
     @include baseline(3rem,5rem,11rem);
   }
 }
+
+#loadscreen {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  background: #636363;
+  color: #FFF8E8;
+
+  .centerscreen {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    @include baseline(7rem,9rem,15rem);
+    font-family: charter;
+  }
+}
+
+
+@keyframes fade-in {
+  0% {opacity: 0;}
+  30% {opacity: 0;}
+  100% {opacity: 1;}
+}
+@keyframes rise {
+  0% {transform: translate(0,0);}
+  60% {transform: translate(0,0);}
+  100% {transform: translate(0,-3rem);}
+}
+
+@keyframes fade-out {
+  0% {opacity: 1; z-index: 0;}
+  70% {opacity: 1; z-index: 0;}
+  100% {opacity: 0; z-index: 0;}
+  100% {opacity: 0; z-index: -1;}
+}
+
+.fade-in {
+  animation-name: fade-in;
+  animation-duration: 4s;
+}
+
+.rise {
+  animation-name: rise;
+  animation-duration: 3s;
+  display: inline-block;
+  transform: translate(0,-3rem);
+}
+
+.fade-out {
+  animation-name: fade-out;
+  animation-duration: 5s;
+  opacity: 0;
+  pointer-events: none;
+}
