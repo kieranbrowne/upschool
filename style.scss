@@ -46,6 +46,20 @@ body {
 .splash-text {
   //@include baseline(7rem,9rem,15rem);
   font-size: calc(3em + 2vw);
+  line-height: 9 / 7 * 1em;
+  margin-bottom: -20vh;
+  
+  font-family: charter;
+  color: var(--foreground);
+  font-weight: 200;
+  margin-top: 38vh;
+  transform: translate(0,-50%);
+}
+.normal-text {
+  font-size: calc((3em + 2vw) * .7);
+  line-height: 9 / 6 * 1em;
+  margin-bottom: -20vh;
+  
   font-family: charter;
   color: var(--foreground);
   font-weight: 200;
@@ -56,12 +70,17 @@ body {
 nav ul {
   list-style: none;
   text-align: right;
-  font-family: "sofia-pro-soft";
+  font-family: "sofia-pro";
+  font-weight: 700;
+
+  $base: 8rem;
+  $step: 2rem;
 
   li {
     vertical-align: top;
     display: inline-block;
-    @include baseline(3rem,5rem,5rem);
+
+    @include baseline(3rem,5rem,$base);
     margin-left: 10rem;
 
     &.current a { 
@@ -77,14 +96,14 @@ nav ul {
 
   }
   li:nth-of-type(3) {
-    @include baseline(3rem,5rem,7rem);
+    @include baseline(3rem,5rem,($base + $step));
   }
   li:nth-of-type(2) {
-    @include baseline(3rem,5rem,9rem);
+    @include baseline(3rem,5rem,$base + $step * 2);
   }
 
   li:nth-of-type(1) {
-    @include baseline(3rem,5rem,11rem);
+    @include baseline(3rem,5rem,$base + $step * 3);
   }
 }
 
@@ -200,6 +219,7 @@ nav ul {
     @include baseline(7rem,9rem,9.5rem);
     display: block;
     font-family: sans-serif;
+    font-weight: 400;
   }
 
   #menu-button {
