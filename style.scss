@@ -42,12 +42,18 @@ body {
 nav ul {
   list-style: none;
   text-align: right;
+  font-family: "sofia-pro-soft";
 
   li {
     vertical-align: top;
     display: inline-block;
     @include baseline(3rem,5rem,5rem);
     margin-left: 10rem;
+    a {
+      text-decoration: none;
+      color: inherit;
+      color: var(--foreground)
+    }
 
   }
   li:nth-of-type(3) {
@@ -56,6 +62,7 @@ nav ul {
   li:nth-of-type(2) {
     @include baseline(3rem,5rem,9rem);
   }
+
   li:nth-of-type(1) {
     @include baseline(3rem,5rem,11rem);
   }
