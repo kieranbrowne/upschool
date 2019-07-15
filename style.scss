@@ -278,6 +278,7 @@ input {
   background: none;
   border: none;
   border-bottom: 2px solid var(--foreground);
+  border-radius: 0;
   color: var(--foreground);
   width: 100%;
   @include baseline(3rem,6rem,13rem,0rem);
