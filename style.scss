@@ -123,7 +123,7 @@ nav ul {
     top: 50%;
     transform: translate(-50%,-50%);
     font-family: charter, serif;
-    font-size: calc(2.5em + 1.9vw);
+    font-size: calc(1.5em + 1.9vw);
   }
 }
 
@@ -266,7 +266,7 @@ a {
 @media screen and (max-width: 750px) {
   #loadscreen .rise {
     animation: nome;
-    transform: translate(0,0);
+    transform: translate(0,-.3em);
   }
   .normal-text {
     font-size: 3.5rem;
