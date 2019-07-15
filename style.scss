@@ -57,19 +57,22 @@ body {
 .normal-text {
   font-size: calc((3em + 2vw) * .7);
   line-height: 9 / 6 * 1em;
-  margin-bottom: -20vh;
   
   font-family: charter, serif;
   color: var(--foreground);
   font-weight: 200;
-  margin-top: 38vh;
-  transform: translate(0,-50%);
+  margin-top: 10rem;
+  a {
+    text-decoration: none;
+    border-bottom: 1px solid var(--highlight);
+  }
+  padding-bottom: 10rem;
 }
 
 nav ul {
   list-style: none;
   text-align: right;
-  font-family: "sofia-pro";
+  font-family: "sofia-pro", serif;
   font-weight: 700;
 
   $base: 8rem;
@@ -122,6 +125,10 @@ nav ul {
     font-family: charter, serif;
     font-size: calc(2.5em + 1.9vw);
   }
+}
+
+a {
+  color: var(--highlight);
 }
 
 
@@ -255,4 +262,51 @@ nav ul {
   #loadscreen {
     display: none;
   }
+}
+
+input {
+  appearance: none;
+  background: none;
+  border: none;
+  border-bottom: 2px solid var(--foreground);
+  color: var(--foreground);
+  width: 100%;
+  @include baseline(3rem,6rem,13rem,0rem);
+  font-family: charter, serif;
+  &::placeholder {
+    color: var(--foreground);
+  }
+  &::-webkit-input-placeholder {
+    color: var(--foreground);
+  }
+  &::-moz-placeholder { 
+    color: var(--foreground);
+  }
+  &:-moz-placeholder {
+    color: var(--foreground);
+  }
+  &:-ms-input-placeholder {
+    color: var(--foreground);
+  }
+}
+
+a.sendbutton {
+  display: block;
+  width: 15rem;
+  text-align: center;
+  font-family: "sofia-pro", serif;
+  font-weight: 600;
+  border-radius: 50%;
+  @include baseline(4rem,14rem,18rem,7rem);
+  border: 2px solid var(--foreground);
+  margin-left: auto;
+  margin-right: auto;
+  transition: all .3s;
+  color: var(--foreground);
+
+  &:hover {
+    background-color: var(--foreground);
+    color: var(--background);
+  }
+  
 }
