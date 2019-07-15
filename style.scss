@@ -17,6 +17,10 @@ $sm-grid: (
   namespace: "-sm"
 );
 
+.header {
+  padding-top: 3rem;
+}
+
 @include gen-grid($grid);
 
 
@@ -267,6 +271,9 @@ a {
   #loadscreen .rise {
     animation: nome;
     transform: translate(0,-.3em);
+  }
+  .header {
+    padding-top: 0rem;
   }
   .normal-text {
     font-size: 3.5rem;
