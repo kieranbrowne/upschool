@@ -257,10 +257,16 @@ a {
   }
 }
 
-
 @media screen and (max-width: 550px) {
-  #loadscreen {
-    display: none;
+  #loadscreen .rise {
+    animation: none;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  #loadscreen .rise {
+    animation: nome;
+    transform: translate(0,0);
   }
   .normal-text {
     font-size: 3.5rem;
