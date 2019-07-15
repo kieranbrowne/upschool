@@ -230,7 +230,7 @@ a {
   #menu-close ,
   #menu-button {
     @include baseline(7rem,9rem,9.5rem);
-    display: block;
+    display: inline-block;
     font-family: sans-serif;
     font-weight: 400;
   }
