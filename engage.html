@@ -11,8 +11,22 @@ Reach out below, we'd love to hear from you.
 
 <br>
 
-<input type="text" name="my-name" placeholder="Name" >
-<input type="text" name="my-name" placeholder="Phone" >
-<input type="text" name="my-name" placeholder="Message" >
+<input type="text" id="my-name" placeholder="Name" >
+<input type="text" id="my-phone" placeholder="Phone" >
+<input type="text" id="my-message" placeholder="Message" >
 
-<a class="sendbutton" href="mailto:blah" >send</a>
+<a class="sendbutton" href="mailto:hello@upschool.me?subject=Upschool%20Enquiry" >send</a>
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+  crossorigin="anonymous"></script>
+
+<script>
+
+$("input").on("input",function () {
+  console.log("test");
+  $(".sendbutton").attr("href", encodeURI("mailto:hello@upschool.me?subject=Upschool Enquiry&body="+$("#my-message").val()+"\n\n"+$("#my-name").val()+"\n"+$("#my-phone").val()));
+});
+
+</script>
