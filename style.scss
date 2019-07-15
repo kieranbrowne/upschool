@@ -265,6 +265,9 @@ a {
   #loadscreen .rise {
     animation: none;
   }
+  #loadscreen .centerscreen {
+    top: 42%;
+  }
 }
 
 @media screen and (max-width: 750px) {
