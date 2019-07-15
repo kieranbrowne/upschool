@@ -144,7 +144,7 @@ a {
 @keyframes rise {
   0% {transform: translate(0,0);}
   60% {transform: translate(0,0);}
-  100% {transform: translate(0,-2.2rem);}
+  100% {transform: translate(0,-.35em);}
 }
 
 @keyframes fade-out {
@@ -163,7 +163,7 @@ a {
   animation-name: rise;
   animation-duration: 3s;
   display: inline-block;
-  transform: translate(0,-2.2rem);
+  transform: translate(0,-.35em);
 }
 
 .fade-out {
